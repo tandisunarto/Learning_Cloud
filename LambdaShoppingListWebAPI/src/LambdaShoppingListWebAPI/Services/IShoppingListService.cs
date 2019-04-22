@@ -5,7 +5,7 @@ namespace LambdaShoppingListWebAPI.Services
 {
     public interface IShoppingListService
     {
-        List<ShoppingListModel> GetItemsFromShoppingList();
+        IEnumerable<ShoppingListModel> GetItemsFromShoppingList();
         void AddItemToShoppingList(ShoppingListModel model);
         void DeleteItemToShoppingList(ShoppingListModel model);
     }

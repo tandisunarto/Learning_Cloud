@@ -18,8 +18,6 @@ namespace LambdaShoppingListWebAPI.Tests
 {
     public class ShoppingListControllerTests
     {
-
-
         [Fact]
         public async Task TestGet()
         {
@@ -48,11 +46,11 @@ namespace LambdaShoppingListWebAPI.Tests
 
             Assert.Equal(201, response.StatusCode);
 
-            var requestGetStr = File.ReadAllText("./SampleRequests/ShoppingList-Get.json");
-            var requestGet = JsonConvert.DeserializeObject<APIGatewayProxyRequest>(requestGetStr);
-            var responseGet = await lambdaFunction.FunctionHandlerAsync(request, context);
+            // var requestGetStr = File.ReadAllText("./SampleRequests/ShoppingList-Get.json");
+            // var requestGet = JsonConvert.DeserializeObject<APIGatewayProxyRequest>(requestGetStr);
+            // var responseGet = await lambdaFunction.FunctionHandlerAsync(request, context);
 
-            Assert.Equal(200, responseGet.StatusCode);
+            // Assert.Equal(200, responseGet.StatusCode);
             // Assert.Equal("[\"value1\",\"value2\"]", responseGet.Body);
             // Assert.True(responseGet.MultiValueHeaders.ContainsKey("Content-Type"));
             // Assert.Equal("application/json; charset=utf-8", responseGet.MultiValueHeaders["Content-Type"][0]);

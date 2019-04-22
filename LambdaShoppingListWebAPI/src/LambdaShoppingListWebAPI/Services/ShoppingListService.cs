@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using LambdaShoppingListWebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LambdaShoppingListWebAPI.Services
 {
@@ -19,7 +20,7 @@ namespace LambdaShoppingListWebAPI.Services
             _shoppingListStorage.Remove(item);
         }
 
-        public List<ShoppingListModel> GetItemsFromShoppingList()
+        public IEnumerable<ShoppingListModel> GetItemsFromShoppingList()
         {
             return _shoppingListStorage;
         }
