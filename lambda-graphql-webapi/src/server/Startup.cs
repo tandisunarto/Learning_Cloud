@@ -7,8 +7,8 @@ using GraphQL.Server;
 using GraphQL.Server.Ui.GraphiQL;
 using GraphQL.Server.Ui.Playground;
 using GraphQL.Server.Ui.Voyager;
-// using GraphQL.Server.Transports.AspNetCore;
-// using GraphQL.Server.Transports.WebSockets;
+using GraphQL.Server.Transports.AspNetCore;
+using GraphQL.Server.Transports.WebSockets;
 using lambda_graphql_webapi.Schemas;
 using lambda_graphql_webapi.Services;
 using Microsoft.AspNetCore.Builder;
@@ -40,7 +40,12 @@ namespace server
             services.AddSingleton<OrderType>();
             services.AddSingleton<OrderStatusesEnum>();
             services.AddSingleton<OrderQuery>();
+            services.AddSingleton<OrderCreateInputType>();
+            services.AddSingleton<OrderMutation>();
+            services.AddSingleton<OrdersSubscription>();
+            services.AddSingleton<OrderEventType>();
             services.AddSingleton<OrderSchema>();
+            services.AddSingleton<IOrderEventService, OrderEventService>();
             services.AddSingleton<CustomerType>();
             services.AddSingleton<IDependencyResolver>(
                 c => new FuncDependencyResolver(type => c.GetRequiredService(type))
@@ -77,10 +82,6 @@ namespace server
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions()
             {
                 Path = "/ui/playground",
-                // PlaygroundSettings = new Dictionary<string, object> {
-                //     ["editor.theme"] = "light",
-                //     ["tracing.hideTracingResponse"] = false
-                // }
             });
             app.UseGraphiQLServer(new GraphiQLOptions
             {

@@ -8,5 +8,7 @@ namespace lambda_graphql_webapi.Services
     {
         Task<Order> GetOrderByIdAsync(string id);
         Task<IEnumerable<Order>> GetOrdersAsync();
+        Task<Order> CreateAsync(Order order);
+        Task<Order> StartAsync(string orderId);
     }
 }

@@ -7,11 +7,15 @@ namespace lambda_graphql_webapi.Schemas
     {
         public OrderSchema(
             OrderQuery query,
+            OrderMutation mutation,
+            OrdersSubscription subscription,
             IDependencyResolver resolver
         )
         {
             Query = query;
+            Mutation = mutation;
             DependencyResolver = resolver;
+            Subscription = subscription;
         }
     }
 }
