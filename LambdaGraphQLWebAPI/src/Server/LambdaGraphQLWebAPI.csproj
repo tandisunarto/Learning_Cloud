@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <AWSProjectType>Lambda</AWSProjectType>
+    <AWSProjectType>Lambda</AWSProjectType>    
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="GraphQL.Server" Version="1.6.3.0" />

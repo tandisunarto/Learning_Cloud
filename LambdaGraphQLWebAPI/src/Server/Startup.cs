@@ -84,7 +84,7 @@ namespace LambdaGraphQLWebAPI
 
             app.UseWebSockets();
             app.UseGraphQL<OrdersSchema>("/graphql");
-            app.UseGraphQLWebSockets<OrdersSchema>("/graphql");
+            // app.UseGraphQLWebSockets<OrdersSchema>("/graphql");
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions()
             {
                 Path = "/ui/playground",
@@ -99,6 +99,8 @@ namespace LambdaGraphQLWebAPI
                 GraphQLEndPoint = "/graphql",
                 Path = "/ui/voyager"
             });
+
+            app.UseMvc();
         }
     }
 }
