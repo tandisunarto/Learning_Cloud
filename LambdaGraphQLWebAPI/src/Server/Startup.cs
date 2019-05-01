@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL;
-// using GraphQL;
 using GraphQL.Server;
 using GraphQL.Server.Ui.GraphiQL;
 using GraphQL.Server.Ui.Playground;
@@ -57,7 +56,7 @@ namespace LambdaGraphQLWebAPI
             services.AddGraphQL(options =>
             {
                 options.EnableMetrics = true;
-                options.ExposeExceptions = Environment.IsDevelopment();
+                // options.ExposeExceptions = Environment.IsDevelopment();
             })
             .AddWebSockets();
 
@@ -92,7 +91,7 @@ namespace LambdaGraphQLWebAPI
             app.UseGraphiQLServer(new GraphiQLOptions
             {
                 GraphiQLPath = "/ui/graphiql",
-                GraphQLEndPoint = "/graphql"
+                GraphQLEndPoint = "/graphql",
             });
             app.UseGraphQLVoyager(new GraphQLVoyagerOptions()
             {
